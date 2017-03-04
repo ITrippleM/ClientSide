@@ -6,6 +6,7 @@ import Template from './Template/index.jsx';
 import Login from './Login/index.jsx';
 import NotFound from './NotFound/index.jsx';
 import MenuComponent from './Compnonents/MenuComponent/index';
+import Admin from './AdminSearch/AdminSearch.jsx';
 
 
 export default class App extends Component {
@@ -18,12 +19,11 @@ export default class App extends Component {
     return (
       <div>
         <Router history={browserHistory}>
-          <MenuComponent />
-          <Route handler={Template} path="/" component={Login}>
-              <Route path="login" component={Login}/>
-
-            <Route path="*" component={NotFound}/>
+          <Route path="/" component={Template}>
+            <Route path="login" component={Login}/>
+            <Route path="admin" component={Admin}/>
           </Route>
+          <Route path="*" component={NotFound}/>
         </Router>
       </div>
     );
