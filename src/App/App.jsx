@@ -19,11 +19,11 @@ export default class App extends Component {
       <div>
         <Router history={browserHistory}>
           <MenuComponent />
-          <Route path="/" component={Template}>
-            <Route path="login" component={Login}/>
+          <Route handler={Template} path="/" component={Login}>
+              <Route path="login" component={Login}/>
 
+            <Route path="*" component={NotFound}/>
           </Route>
-          <Route path="*" component={NotFound}/>
         </Router>
       </div>
     );
