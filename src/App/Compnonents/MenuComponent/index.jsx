@@ -3,6 +3,7 @@
  */
 
 import React, {Component} from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 class MenuComponent extends Component {
   constructor(props) {
@@ -10,7 +11,11 @@ class MenuComponent extends Component {
   }
 
   render() {
-    return (<div>Menu</div>)
+    return (<div>
+      <Link to="/upload/resume" >Upload</Link>
+      <Link to="/login" >Login</Link>
+      <Link to="/admin" >Admin</Link>
+    </div>)
   }
 }
 
