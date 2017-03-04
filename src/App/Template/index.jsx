@@ -2,33 +2,38 @@
  * Created by macdja38 on 2017-03-04.
  */
 
-import React, {Component, Link} from 'react';
+import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 export default class Template extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-  }
-
   render() {
-    console.log(this.props);
+    console.log(this.props.part);
+
     return (
       <div>
         <header>
           <ul role="nav">
-            <li><Link to="about">About</Link></li>
-            <li><Link to="contact">Contact</Link></li>
+            <li><Link to="login">{"Login"}</Link></li>
+            <li><Link to="admin">{"Admin"}</Link></li>
           </ul>
         </header>
         <main>
-          {this.props.activeRoute}
+          {this.props.part}
         </main>
+
         <footer>
-          Copyright 2014 Somebody
         </footer>
       </div>
     )
   }
 }
+
+/*
+ <main>
+ {this.props.part}
+ </main>
+ */

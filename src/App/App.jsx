@@ -1,7 +1,7 @@
 "use strict";
 import s from './styles.scss';
 import React, {Component} from 'react';
-import {Router, Route, Link, browserHistory} from 'react-router';
+import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import Template from './Template/index.jsx';
 import Login from './Login/index.jsx';
 import NotFound from './NotFound/index.jsx';
@@ -19,11 +19,12 @@ export default class App extends Component {
     return (
       <div>
         <Router history={browserHistory}>
-          <Route path="/" component={Template}>
-            <Route path="login" component={Login}/>
-            <Route path="admin" component={Admin}/>
+          <Route component={Template} path="/">
+            <IndexRoute components={{part: Login}}/>
+            <Route path="login" components={{part: Login}}/>
+            <Route path="admin" component={{part: Admin}}/>
+            <Route path="*" components={{part: NotFound}}/>
           </Route>
-          <Route path="*" component={NotFound}/>
         </Router>
       </div>
     );
