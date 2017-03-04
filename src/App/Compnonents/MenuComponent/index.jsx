@@ -12,9 +12,9 @@ class MenuComponent extends Component {
 
   render() {
     return (<div>
-      <Link to="/upload/resume" >Upload</Link>
-      <Link to="/login" >Login</Link>
-      <Link to="/admin" >Admin</Link>
+      <Link to={"/upload/resume"} >Upload</Link>
+      <Link to={"/login"} >Login</Link>
+      <Link to={"/admin"} >Admin</Link>
     </div>)
   }
 }
