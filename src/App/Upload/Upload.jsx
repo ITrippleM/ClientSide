@@ -86,7 +86,6 @@ export default class Upload extends Component {
 
                   <Multiselect label="Multi-select"
 
-
                   />
 
                   <h2>Upload Resume(.pdf only).</h2>

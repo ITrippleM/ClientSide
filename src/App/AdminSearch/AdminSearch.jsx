@@ -60,9 +60,7 @@ export default class AdminSearch extends Component {
     fetch('/sendSearch', {method: "POST", body: this.myArray});
     console.log('Your Request Was Submitted');
     event.preventDefault();
-    <ul role="nav">
-      <Link to="match">{"Match"}</Link>;
-    </ul>
+    this.props.pop("/EmployeeMatch/Match.jsx");
   }
 
   pushFinal(){
