@@ -36,6 +36,7 @@ export default class AdminSearch extends Component {
 
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
+
   logChange(val) {
     console.log("Selected: " + val);
   }
@@ -60,7 +61,6 @@ export default class AdminSearch extends Component {
     fetch('/sendSearch', {method: "POST", body: this.myArray});
     console.log('Your Request Was Submitted');
     event.preventDefault();
-    this.props.pop("/EmployeeMatch/Match.jsx");
   }
 
   pushFinal(){
@@ -92,7 +92,7 @@ export default class AdminSearch extends Component {
           <h1>Welcome! Please fill out the form below to find the best employee for the job.</h1>
           <h2>Job Type.</h2>
 
-          <Multiselect label="Multi-select" />
+          <Multiselect label="Multi-select" onChange={} />
 
           <h2>Fluent Languages.</h2>
 
@@ -103,10 +103,6 @@ export default class AdminSearch extends Component {
             onChange={this.updateSearchTerm}
           />
 
-
-
-
-
           <h2>Coding Languages Required.</h2>
 
             <input
@@ -116,8 +112,6 @@ export default class AdminSearch extends Component {
               onChange={this.updateSearchTerm}
             />
 
-
-
           <h2>Key Words</h2>
 
           <input
@@ -126,7 +120,6 @@ export default class AdminSearch extends Component {
             value={searchTerm3}
             onChange={this.updateSearchTerm}
           />
-
 
           <input
             type="submit"
