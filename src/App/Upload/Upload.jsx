@@ -37,7 +37,7 @@ export default class Upload extends Component {
         this.updateSearchArray = this.updateSearchArray.bind(this);
 
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-        }
+    }
 
     logChange(val) {
         console.log("Selected: " + val);
@@ -90,7 +90,7 @@ export default class Upload extends Component {
                   <input
                     type="text"
                     placeholder="Name..."
-                    value={searchTerm}
+                    value={this.state.searchTerm}
                     onChange={this.updateSearchTerm}
                   />
 
