@@ -29,11 +29,12 @@ export default class Upload extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { searchTerm: '' };
-        this.
+        this.state = { searchTerm: '', value: [] };
         this.updateSearchTerm = this.updateSearchTerm.bind(this);
         this.onClick = this.onClick.bind(this);
         this.logChange= this.logChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateSearchArray = this.updateSearchArray.bind(this);
 
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         }
@@ -50,20 +51,30 @@ export default class Upload extends Component {
         this.setState({ searchTerm: event.target.value })
     }
 
+    updateSearchArray(value){
+      this.setState({ value, })
+    }
+
     handleSubmit(event) {
-        this.props.fetchRepos(this.state.searchTerm);
-        this.pushFinal();
         this.finalSubmit();
 
         event.preventDefault()
     }
 
     finalSubmit(){
-        fetch('/sendName', {method: "POST", body: this.state});
-        fetch('/sendJobType', {method: "POST", body: this.state});
-        console.log('Your Request Was Submitted');
-        event.preventDefault();
+      let input = document.querySelector('input[type="file"]');
 
+      let data = new FormData();
+      data.append('file', input.files[0]);
+      data.append('user', window.user);
+      data.append('data', this.state);
+
+      fetch('/resume', {
+        method: 'POST',
+        body: data
+      });
+
+      console.log('Your Request Was Submitted');
   }
 
 
@@ -86,11 +97,13 @@ export default class Upload extends Component {
                   <h2>Job Type.</h2>
 
                   <Multiselect label="Multi-select"
-                               onChange={this.updateSearchTerm}
+                               onChange={this.updateSearchArray}
                   />
 
                   <h2>Upload Resume(.pdf only).</h2>
-
+                  <input
+                    type="file"
+                    />
 
                   <input
                     type="submit"
