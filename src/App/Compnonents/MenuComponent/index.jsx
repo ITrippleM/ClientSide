@@ -20,14 +20,14 @@ function Header(user) {
       <div className={s.container}>
         <PurpleBar />
         <div className={s.banner}>
-          <h1 className={s.bannerTitle}>PvPCraft</h1>
-          <p className={s.bannerDesc}>Just the best Discord bot</p>
+          <h1 className={s.bannerTitle}>IMMM</h1>
+          <p className={s.bannerDesc}>Just the best Resume Management System</p>
         </div>
         <div className={s.navBar}>
           <Navigation className={s.nav} user={user} />
           <Link className={s.brand} to="/">
 
-            <span className={s.brandTxt}>PvPCraft</span>
+            <span className={s.brandTxt}>IMMM</span>
           </Link>
         </div>
       </div>
