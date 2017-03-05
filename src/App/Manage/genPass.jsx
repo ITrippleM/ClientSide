@@ -12,11 +12,11 @@ export default class Manage extends Component {
 
   usernameChange(event) {
     console.log(event.target.value);
-    this.setState({password: event.target.value});
+    this.setState({username: event.target.value});
   }
 
   handleSubmit(event) {
-    fetch('/login/makeAdmin', {method: "PATCH",   headers: {
+    fetch('/login/makeAdmin', {method: "POST",   headers: {
       'Content-Type': 'application/json'
     }, body: JSON.stringify({user: window.user, username: this.state.username, password: Date.now()})}).then((user) => {
       this.setState({user});
@@ -35,7 +35,7 @@ export default class Manage extends Component {
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <label>
           Username:
-          <input onChange={this.usernameChange} type="password" name="password"/>
+          <input value={this.state.username} onChange={this.usernameChange} type="text" name="username"/>
         </label>
         <input type="submit" value="Submit" />
       </form>
