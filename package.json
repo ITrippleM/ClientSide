@@ -5,7 +5,7 @@
     "build": "webpack --optimize-minimize --config webpack.production.config.js --progress --profile --colors",
     "devBuild": "webpack --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
-    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
+    "dev": " webpack-dashboard -- webpack-dev-server --config webpack.config.js  --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0"
   },
   "dependencies": {
@@ -13,6 +13,7 @@
     "babel-preset-es2015-native-modules": "^6.9.4",
     "babel-preset-es2015-webpack": "^6.4.3",
     "babel-preset-react": "^6.16.0",
+    "classnames": "^2.2.5",
     "country-list": "^1.1.0",
     "html-loader": "^0.4.4",
     "node-sass": "^4.2.0",

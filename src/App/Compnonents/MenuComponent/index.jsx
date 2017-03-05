@@ -1,26 +1,44 @@
 /**
- * Created by macdja38 on 2017-03-04.
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, {Component} from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import React, { PropTypes } from 'react';
+import s from './Header.scss';
+import Navigation from '../Navigation';
+import PurpleBar from '../PurpleBar';
+import {Link} from 'react-router';
+// import logoUrl from './logo-small.png';
 
-class MenuComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
+function Header(user) {
+  return (
+    <div className={s.root}>
+      <div className={s.container}>
+        <PurpleBar />
+        <div className={s.banner}>
+          <h1 className={s.bannerTitle}>PvPCraft</h1>
+          <p className={s.bannerDesc}>Just the best Discord bot</p>
+        </div>
+        <div className={s.navBar}>
+          <Navigation className={s.nav} user={user} />
+          <Link className={s.brand} to="/">
 
-  render() {
-    return (<div>
-      <Link to={"/upload/resume"} >Upload</Link>
-      <Link to={"/login"} >Login</Link>
-      <Link to={"/admin"} >Admin</Link>
-    </div>)
-  }
+            <span className={s.brandTxt}>PvPCraft</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-MenuComponent.propTypes = {
-  user: React.PropTypes.object,
+Header.propTypes = {
+  user: PropTypes.object,
 };
 
-export default MenuComponent;
+export default Header;
+
+// <img src={logoUrl} width="44" height="44" alt="PvPCraft" />
