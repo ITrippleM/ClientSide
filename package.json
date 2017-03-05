@@ -27,6 +27,7 @@
     "react-router-dom": "^4.0.0-beta.6",
     "react-select": "^1.0.0-rc.3",
     "react-select-popover": "^0.1.1",
+    "react-selection-popover": "^1.1.1",
     "react-tag-input": "^4.6.2",
     "sass-loader": "^4.0.2"
   },

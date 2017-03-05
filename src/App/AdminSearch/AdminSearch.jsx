@@ -3,16 +3,31 @@
  */
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import { Button, IconButton, FloatingButton, FlatButton } from 'react-buttons';
+import Select from 'react-select';
+
+
+
+
+let options = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' }
+];
+
+
 
 export default class AdminSearch extends Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.logChange= this.logChange.bind(this);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  logChange(val) {
+    console.log("Selected: " + val);
   }
 
   onClick(){
@@ -21,8 +36,9 @@ export default class AdminSearch extends Component {
 
   render() {
     return (
+
       <div>
-        <p>Hi</p>
+
         <Button faIcon="plus" onClick={this.onClick}>New Thing</Button>
         <Button materialIcon="favorite" iconBefore={true} onClick={this.onClick}>Favorite</Button>
 
@@ -33,7 +49,15 @@ export default class AdminSearch extends Component {
         <FlatButton color="primary" onClick={this.onClick} />
 
         <FloatingButton faIcon="plus" label="Add a new thing" onClick={this.onClick} />
-      </div>
+
+        <Select
+          name="form-field-name"
+          value="one"
+          options={options}
+          onChange={this.logChange}
+        />
+        </div>
     )
   }
 }
+
