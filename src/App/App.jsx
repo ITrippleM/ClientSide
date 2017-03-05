@@ -11,6 +11,7 @@ import MenuComponent from './Compnonents/MenuComponent/index';
 import Admin from './AdminSearch/AdminSearch.jsx';
 import Match from './EmployeeMatch/Match.jsx';
 import Manage from './Manage/Manage.jsx';
+import genPass from './Manage/genPass.jsx';
 
 
 export default class App extends Component {
@@ -47,6 +48,7 @@ export default class App extends Component {
             <Route path="admin" component={{part: Admin}}/>
             <Route path="match" component={{part: Match}}/>
             <Route path="manage" component={{part: Manage}}/>
+            <Route path="genPass" component={{part: genPass}}/>
             <Route path="*" components={{part: NotFound}}/>
           </Route>
         </Router>
