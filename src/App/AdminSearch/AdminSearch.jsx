@@ -149,7 +149,6 @@ export default class AdminSearch extends Component {
             a1.unshift(score);
             return <div>{resume.user},{resume.user.name},{resume.score},<a href="/test/"{resume.fileName}>Download Resume</a>,<Circle percent={(resume.maxScore/resume.score*100).toString()} strokeWidth="50" strokeColor="#7FFF00" /> </div>;
           })}
-          <Circle percent="10" strokeWidth="50" strokeColor="#7FFF00" />
         </div>
       </div >
     )
