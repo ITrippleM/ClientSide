@@ -142,7 +142,7 @@ export default class AdminSearch extends Component {
     return (
       <div>
         <h2> Job Type. </h2>
-        <Circle percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
+        <Circle percent="10" strokeWidth="50" strokeColor="#7FFF00" />
       </div >
     )
   }
