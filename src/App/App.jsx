@@ -9,6 +9,7 @@ import 'whatwg-fetch';
 import Upload from './Upload/Upload.jsx';
 import MenuComponent from './Compnonents/MenuComponent/index';
 import Admin from './AdminSearch/AdminSearch.jsx';
+import Match from './EmployeeMatch/Match.jsx';
 
 
 export default class App extends Component {
@@ -34,6 +35,7 @@ export default class App extends Component {
             <Route path="login" components={{part: Login}}/>
             <Route path="Upload" components={{part: Upload}}/>
             <Route path="admin" component={{part: Admin}}/>
+            <Route path="match" component={{part: Match}}/>
             <Route path="*" components={{part: NotFound}}/>
           </Route>
         </Router>
