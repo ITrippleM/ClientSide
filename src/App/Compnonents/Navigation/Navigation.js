@@ -17,20 +17,34 @@ function Navigation({ className, user }) {
   if (window.user == false) {
     return (
       <div className={cx(s.root, className)} role="navigation">
-        <Link className={s.highlight} to={"/upload/resume"} >Upload</Link>
-        <Link className={s.highlight} to={"/login"} >Login</Link>
         <span className={s.spacer}> | </span>
         <Link className={cx(s.link, s.highlight)} to="/login">Log in</Link>
       </div>
     );
   }
   console.log("Final", window.user);
+
+  if (window.user.admin) {
+    return (
+      <div className={cx(s.root, className)} role="navigation">
+        <Link className={s.highlight} to={"/upload"} >Upload</Link>
+        <Link className={s.highlight} to={"/admin"} >Admin</Link>
+        <Link className={s.highlight} to={"/manage"} >Manage</Link>
+        <span className={s.spacer}> | </span>
+        <div className={cx(s.link, s.highlight)} >
+          <Link className={s.username} to={`/user/${window.user.id}`}>
+            <span> {window.user.username}</span>
+          </Link>
+          <a className={cx(s.link, s.highlight)} href="/logout">Log out</a>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={cx(s.root, className)} role="navigation">
-      <Link to={"/upload/resume"} >Upload</Link>
-      <Link to={"/login"} >Login</Link>
-      <Link to={"/admin"} >Admin</Link>
-      <Link className={s.highlight} to={"/manage"} >Manage</Link>
+      <Link className={s.highlight} to={"/upload"} >Upload</Link>
+      <Link className={s.highlight} to={"/manage"} >Change Password</Link>
       <span className={s.spacer}> | </span>
       <div className={cx(s.link, s.highlight)} >
         <Link className={s.username} to={`/user/${window.user.id}`}>

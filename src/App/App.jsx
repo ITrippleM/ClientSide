@@ -43,7 +43,7 @@ export default class App extends Component {
           <Route component={Template} path="/">
             <IndexRoute components={{part: Login}}/>
             <Route path="login" components={{part: Login}}/>
-            <Route path="Upload" components={{part: Upload}}/>
+            <Route path="upload" components={{part: Upload}}/>
             <Route path="admin" component={{part: Admin}}/>
             <Route path="match" component={{part: Match}}/>
             <Route path="manage" component={{part: Manage}}/>
