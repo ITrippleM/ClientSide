@@ -4,35 +4,38 @@ import 'whatwg-fetch';
 export default class Manage extends Component {
   constructor(props) {
     super(props);
-    this.state = {password: ""};
-    this.passwordChange = this.passwordChange.bind(this);
+    this.state = {username: "", password: false};
+    this.usernameChange = this.usernameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  passwordChange(event) {
+
+  usernameChange(event) {
     console.log(event.target.value);
     this.setState({password: event.target.value});
   }
 
   handleSubmit(event) {
-    fetch('/login', {method: "PATCH",   headers: {
+    fetch('/login/makeAdmin', {method: "PATCH",   headers: {
       'Content-Type': 'application/json'
-    }, body: JSON.stringify({user: window.user, password: Date.now()})}).then((user) => {
+    }, body: JSON.stringify({user: window.user, username: this.state.username, password: Date.now()})}).then((user) => {
+      this.setState({user});
       console.log("1", user);
-      user.json().then(window.onUserLogin);
     });
     console.log('A name was submitted: ', JSON.stringify(this.state));
     event.preventDefault();
   }
 
   render() {
+    if (this.state.password) {
+      return (<div><p>User generated with </p>{`Username: ${this.state.username}, Password: ${this.state.password}`}</div>)
+    }
     return (<div>
       <p>Change Password</p>
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <label>
-          Password:
-          <input onChange={this.passwordChange} type="password" name="password"/>
-          <button>handleSubmit()</button>
+          Username:
+          <input onChange={this.usernameChange} type="password" name="password"/>
         </label>
         <input type="submit" value="Submit" />
       </form>

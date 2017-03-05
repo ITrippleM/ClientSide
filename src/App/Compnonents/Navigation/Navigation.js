@@ -30,7 +30,7 @@ function Navigation({ className, user }) {
         <Link className={s.highlight} to={"/upload"} >Upload</Link>
         <Link className={s.highlight} to={"/admin"} >Admin</Link>
         <Link className={s.highlight} to={"/manage"} >Manage</Link>
-        <Link className={s.highlight} to={"/genPass"} >Manage</Link>
+        <Link className={s.highlight} to={"/genPass"} >GenUser</Link>
         <span className={s.spacer}> | </span>
         <div className={cx(s.link, s.highlight)} >
           <Link className={s.username} to={`/user/${window.user.id}`}>
