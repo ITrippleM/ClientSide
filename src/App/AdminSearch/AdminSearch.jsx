@@ -10,7 +10,7 @@ import {Button, IconButton, FloatingButton, FlatButton} from 'react-buttons';
 import Select from 'react-select';
 import Multiselect from './MultivariableSelect.jsx';
 import {Link} from 'react-router';
-
+import { Line, Circle } from 'rc-progress';
 
 let jobType = [
   {value: 'programming', label: 'Programming'},
@@ -85,17 +85,10 @@ export default class AdminSearch extends Component {
 
   pushFinal() {
     let newArray = [];
-    newArray.push(...this.state.language);
-    newArray.push(...this.state.codingLanguage);
-    newArray.push(...this.state.keywords);
+    newArray.push(...this.state.language.split(","));
+    newArray.push(...this.state.codingLanguage.split(","));
+    newArray.push(...this.state.keywords.split(","));
     return newArray;
-  }
-
-  toArray(s) {
-
-    for (let i = 0; i < s.length; i++) {
-      this.myArray.push(s[i]);
-    }
   }
 
   render() {
@@ -148,6 +141,7 @@ export default class AdminSearch extends Component {
     return (
       <div>
         <h2> Job Type. </h2>
+        <Circle percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
       </div >
     )
   }
