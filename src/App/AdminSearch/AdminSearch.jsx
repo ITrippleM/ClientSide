@@ -133,11 +133,20 @@ export default class AdminSearch extends Component {
           />
         </form>
       </div>
-
-
-
-
-    )
   }
+  if ( ) {
+    render(){
+      return (
+        <div>
+          <h2> Job Type. </h2>
+        </div >
+    )
+    }
+  }
+
+
 }
+
+
+
 
