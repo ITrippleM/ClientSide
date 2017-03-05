@@ -28,6 +28,7 @@ let jobType = [
 export default class AdminSearch extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.updateLanguage = this.updateLanguage.bind(this);
     this.updateCodingLanguage = this.updateCodingLanguage.bind(this);
     this.updateKeywords = this.updateKeywords.bind(this);
@@ -35,7 +36,6 @@ export default class AdminSearch extends Component {
     this.onClick = this.onClick.bind(this);
     this.logChange = this.logChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateSearchArray = this.updateSearchArray.bind(this);
 
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
@@ -81,7 +81,6 @@ export default class AdminSearch extends Component {
     });
     ;
     console.log('Your Request Was Submitted');
-    event.preventDefault();
   }
 
   pushFinal() {
@@ -100,11 +99,6 @@ export default class AdminSearch extends Component {
   }
 
   render() {
-    const {searchTerm} = this.state;
-    const {searchTerm2} = this.state2;
-    const {searchTerm3} = this.state3;
-    let a4 = this.state4;
-
     if (!this.state.fetchedUsers) {
       return (
 
@@ -129,7 +123,7 @@ export default class AdminSearch extends Component {
             <input
               type="text"
               placeholder="Languages..."
-              value={searchTerm2}
+              value={this.state.codingLanguage}
               onChange={this.updateCodingLanguage}
             />
 
@@ -138,7 +132,7 @@ export default class AdminSearch extends Component {
             <input
               type="text"
               placeholder="Key Words..."
-              value={searchTerm3}
+              value={this.state.keywords}
               onChange={this.updateKeywords}
             />
 
