@@ -77,9 +77,10 @@ export default class AdminSearch extends Component {
         'Content-Type': 'application/json'
       }, body: JSON.stringify({user: window.user, keys: finalArray})
     }).then((data) => {
+      return data.json();
+    }).then((data) => {
       this.setState({fetchedUsers: data});
     });
-    ;
     console.log('Your Request Was Submitted');
   }
 
@@ -137,7 +138,7 @@ export default class AdminSearch extends Component {
         </div>
       )
     }
-
+    console.log(this.state.fetchedUsers)
     return (
       <div>
         <h2> Job Type. </h2>
