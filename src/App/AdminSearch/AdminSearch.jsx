@@ -28,7 +28,7 @@ let jobType = [
 export default class AdminSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {language: "", codingLanguage: "", keywords: ""};
     this.updateLanguage = this.updateLanguage.bind(this);
     this.updateCodingLanguage = this.updateCodingLanguage.bind(this);
     this.updateKeywords = this.updateKeywords.bind(this);
@@ -77,9 +77,10 @@ export default class AdminSearch extends Component {
         'Content-Type': 'application/json'
       }, body: JSON.stringify({user: window.user, keys: finalArray})
     }).then((data) => {
+      return data.json();
+    }).then((data) => {
       this.setState({fetchedUsers: data});
     });
-    ;
     console.log('Your Request Was Submitted');
   }
 
@@ -138,16 +139,17 @@ export default class AdminSearch extends Component {
       )
     }
     let a1= [];
+    console.log(this.state.fetchedUsers);
     return (
 
       <div>
         <h3> Results. </h3>
         <h2> Sorted by best match </h2>
         <div>
-          {this.state.fetchedUsers.map((resume) => {
+          {this.state.fetchedUsers.map((resume, i) => {
             console.log(resume);
-            a1.unshift(score);
-            return <div>{resume.user},{resume.user.name},{resume.score},<a href="/test/"{resume.fileName}>Download Resume</a>,<Circle percent={(resume.maxScore/resume.score*100).toString()} strokeWidth="50" strokeColor="#7FFF00" /> </div>;
+            a1.unshift(resume.score);
+            return (<div key={i}>{resume.resume.user.username},{resume.score},<a href={"/test/"+resume.resume.fileName}>Download Resume</a>,<Circle percent={(resume.maxScore/resume.score*100).toString()} strokeWidth="50" strokeColor="#7FFF00" /> </div>);
           })}
         </div>
       </div >

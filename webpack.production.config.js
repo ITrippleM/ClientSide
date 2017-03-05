@@ -44,22 +44,22 @@ module.exports = {
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+  //    minimize: true
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+        NODE_ENV: '"development"'
       }
     }),
     new FaviconsWebpackPlugin({
       logo: './src/favicon.png',
-      title: 'Pokémon Next-Gen',
+      title: 'Resume',
       persistentCache: true,
       inject: true
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      title: 'Pokémon Next-Gen'
+      title: 'Resume'
     }),
     new WebpackCleanupPlugin(),
   ]
