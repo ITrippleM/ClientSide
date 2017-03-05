@@ -5,15 +5,24 @@ import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import Template from './Template/index.jsx';
 import Login from './Login/index.jsx';
 import NotFound from './NotFound/index.jsx';
+import 'whatwg-fetch';
 import Upload from './Upload/Upload.jsx';
 import MenuComponent from './Compnonents/MenuComponent/index';
 import Admin from './AdminSearch/AdminSearch.jsx';
 
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {user: false};
+  }
+
+  componentDidMount() {
+    console.log("Mounted");
+    console.log(Object.keys(fetch));
+    fetch('/api/user').then((user) => {
+      this.setState({user});
+    }).catch(console.error);
   }
 
   render() {
