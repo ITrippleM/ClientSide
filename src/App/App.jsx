@@ -5,8 +5,10 @@ import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import Template from './Template/index.jsx';
 import Login from './Login/index.jsx';
 import NotFound from './NotFound/index.jsx';
+import Upload from './Upload/Upload.jsx';
 import MenuComponent from './Compnonents/MenuComponent/index';
 import Admin from './AdminSearch/AdminSearch.jsx';
+
 
 
 export default class App extends Component {
@@ -21,6 +23,7 @@ export default class App extends Component {
           <Route component={Template} path="/">
             <IndexRoute components={{part: Login}}/>
             <Route path="login" components={{part: Login}}/>
+            <Route path="Upload" components={{part: Upload}}/>
             <Route path="admin" component={{part: Admin}}/>
             <Route path="*" components={{part: NotFound}}/>
           </Route>

@@ -20,6 +20,7 @@ export default class Template extends Component {
           <MenuComponent/>
           <ul role="nav">
             <li><Link to="login">{"Login"}</Link></li>
+            <li><Link to="Upload">{"Upload"}</Link></li>
             <li><Link to="admin">{"Admin"}</Link></li>
           </ul>
         </header>
