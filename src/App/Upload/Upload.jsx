@@ -30,6 +30,7 @@ export default class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = { searchTerm: '' };
+        this.
         this.updateSearchTerm = this.updateSearchTerm.bind(this);
         this.onClick = this.onClick.bind(this);
         this.logChange= this.logChange.bind(this);
@@ -85,12 +86,10 @@ export default class Upload extends Component {
                   <h2>Job Type.</h2>
 
                   <Multiselect label="Multi-select"
-
+                               onChange={this.updateSearchTerm}
                   />
 
                   <h2>Upload Resume(.pdf only).</h2>
-
-
 
 
                   <input

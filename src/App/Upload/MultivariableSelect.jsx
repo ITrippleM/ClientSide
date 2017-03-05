@@ -15,7 +15,9 @@ const jobType = [
 let MultiSelectField = React.createClass({
   propTypes: {
     label: React.PropTypes.string,
+    onChange: React.PropTypes.func,
   },
+
   getInitialState () {
     return {
       disabled: false,
@@ -24,13 +26,17 @@ let MultiSelectField = React.createClass({
       value: [],
     };
   },
+
   handleSelectChange (value) {
     console.log('You\'ve selected:', value);
     this.setState({value});
+    this.props.onChange(value);
   },
+
   toggleDisabled (e) {
     this.setState({disabled: e.target.checked});
   },
+
   toggleChocolate (e) {
     let crazy = e.target.checked;
     this.setState({
@@ -38,6 +44,7 @@ let MultiSelectField = React.createClass({
 
     });
   },
+
   render () {
     return (
       <div className="section">

@@ -30,6 +30,7 @@ export default class AdminSearch extends Component {
     this.state = { searchTerm: '' };
     this.state2 = { searchTerm: '' };
     this.state3 = { searchTerm: '' };
+    this.state4 = []
     this.updateSearchTerm = this.updateSearchTerm.bind(this);
     this.onClick = this.onClick.bind(this);
     this.logChange= this.logChange.bind(this);
@@ -87,6 +88,7 @@ export default class AdminSearch extends Component {
     const { searchTerm } = this.state;
     const { searchTerm2 } = this.state2;
     const { searchTerm3 } = this.state3;
+    let a4 = this.state4;
     return (
 
       <div>
@@ -94,7 +96,7 @@ export default class AdminSearch extends Component {
           <h1>Welcome! Please fill out the form below to find the best employee for the job.</h1>
           <h2>Job Type.</h2>
 
-          <Multiselect label="Multi-select" onChange={} />
+          <Multiselect label="Multi-select" onChange={this.updateSearchTerm} />
 
           <h2>Fluent Languages.</h2>
 
