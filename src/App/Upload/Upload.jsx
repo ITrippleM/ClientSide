@@ -29,13 +29,14 @@ export default class Upload extends Component {
 
     constructor(props) {
         super(props);
-      this.state = { searchTerm: '' };
+        this.state = { searchTerm: '' };
         this.updateSearchTerm = this.updateSearchTerm.bind(this);
         this.onClick = this.onClick.bind(this);
         this.logChange= this.logChange.bind(this);
 
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         }
+
     logChange(val) {
         console.log("Selected: " + val);
     }
@@ -56,6 +57,14 @@ export default class Upload extends Component {
         event.preventDefault()
     }
 
+    finalSubmit(){
+        fetch('/sendName', {method: "POST", body: this.state});
+        fetch('/sendJobType', {method: "POST", body: this.state});
+        console.log('Your Request Was Submitted');
+        event.preventDefault();
+
+  }
+
 
 
   render() {
@@ -75,7 +84,10 @@ export default class Upload extends Component {
 
                   <h2>Job Type.</h2>
 
-                  <Multiselect label="Multi-select" />
+                  <Multiselect label="Multi-select"
+
+
+                  />
 
                   <h2>Upload Resume(.pdf only).</h2>
 
