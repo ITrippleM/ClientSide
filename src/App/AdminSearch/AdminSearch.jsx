@@ -58,7 +58,9 @@ export default class AdminSearch extends Component {
   }
 
   finalSubmit(){
-    fetch('/sendSearch', {method: "POST", body: this.myArray});
+    fetch('/sendSearch', {method: "POST",   headers: {
+      'Content-Type': 'application/json'
+    }, body: JSON.stringify({user: window.user, data: this.myArray})});
     console.log('Your Request Was Submitted');
     event.preventDefault();
   }
