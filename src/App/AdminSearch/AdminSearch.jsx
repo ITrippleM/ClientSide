@@ -34,6 +34,8 @@ export default class AdminSearch extends Component {
     this.updateSearchTerm = this.updateSearchTerm.bind(this);
     this.onClick = this.onClick.bind(this);
     this.logChange= this.logChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateSearchArray = this.updateSearchArray.bind(this);
 
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
