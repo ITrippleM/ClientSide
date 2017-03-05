@@ -149,7 +149,7 @@ export default class AdminSearch extends Component {
           {this.state.fetchedUsers.map((resume, i) => {
             console.log(resume);
             a1.unshift(resume.score);
-            return (<div style="width: 100px" key={i}>{resume.resume.user.username},{resume.score},<a href={"/test/"+resume.resume.fileName}>Download Resume</a>,<Circle percent={(resume.maxScore/resume.score*100).toString()} strokeWidth="5" strokeColor="#7FFF00" /> </div>);
+            return (<div style={{width: 100}} key={i}>{resume.resume.user.username},{resume.score},<a href={"/test/"+resume.resume.fileName}>Download Resume</a>,<Circle percent={(resume.maxScore/resume.score*100).toString()} strokeWidth="5" strokeColor="#7FFF00" /> </div>);
           })}
         </div>
       </div >
