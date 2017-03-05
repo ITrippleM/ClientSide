@@ -3,7 +3,7 @@ import s from './styles.scss';
 import React, {Component} from 'react';
 import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import Template from './Template/index.jsx';
-import Login from './Login/index.jsx';
+import Login from './login/index.jsx';
 import NotFound from './NotFound/index.jsx';
 import 'whatwg-fetch';
 import Upload from './Upload/Upload.jsx';
