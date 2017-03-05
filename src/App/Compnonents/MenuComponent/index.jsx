@@ -7,38 +7,36 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import s from './Header.scss';
 import Navigation from '../Navigation';
 import PurpleBar from '../PurpleBar';
 import {Link} from 'react-router';
 // import logoUrl from './logo-small.png';
 
-function Header(user) {
-  return (
-    <div className={s.root}>
-      <div className={s.container}>
-        <PurpleBar />
-        <div className={s.banner}>
-          <h1 className={s.bannerTitle}>IMMM</h1>
-          <p className={s.bannerDesc}>Just the best Resume Management System</p>
-        </div>
-        <div className={s.navBar}>
-          <Navigation className={s.nav} user={user} />
-          <Link className={s.brand} to="/">
+export default class Header extends Component {
+  render() {
+    let user = this.props.user;
+    console.log(user);
+    return (
+      <div className={s.root}>
+        <div className={s.container}>
+          <PurpleBar />
+          <div className={s.banner}>
+            <h1 className={s.bannerTitle}>IMMM</h1>
+            <p className={s.bannerDesc}>Just a Resume Management System</p>
+          </div>
+          <div className={s.navBar}>
+            <Navigation className={s.nav} user={user}/>
+            <Link className={s.brand} to="/">
 
-            <span className={s.brandTxt}>IMMM</span>
-          </Link>
+              <span className={s.brandTxt}>IMMM</span>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-Header.propTypes = {
-  user: PropTypes.object,
-};
-
-export default Header;
 
 // <img src={logoUrl} width="44" height="44" alt="PvPCraft" />

@@ -12,12 +12,10 @@ export default class Template extends Component {
   }
 
   render() {
-    console.log(this.props.part);
-
     return (
       <div>
         <header>
-          <MenuComponent/>
+          <MenuComponent user={window.user}/>
           <ul role="nav">
             <li><Link to="login">{"Login"}</Link></li>
             <li><Link to="Upload">{"Upload"}</Link></li>

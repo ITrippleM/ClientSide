@@ -16,17 +16,26 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {user: false};
+    this.onUserLogin = this.onUserLogin.bind(this);
+    window.onUserLogin = this.onUserLogin;
+    window.user = false;
   }
 
   componentDidMount() {
-    console.log("Mounted");
-    console.log(Object.keys(fetch));
     fetch('/api/user').then((user) => {
-      this.setState({user});
+      this.setState({user: user});
     }).catch(console.error);
   }
 
+  onUserLogin(user) {
+    console.log(user);
+      console.log("user login function called", user);
+      this.setState({user});
+      window.user = user;
+  }
+
   render() {
+    console.log("Re Rendering");
     return (
       <div>
         <Router history={browserHistory}>

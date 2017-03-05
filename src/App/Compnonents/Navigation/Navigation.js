@@ -13,7 +13,8 @@ import s from './Navigation.scss';
 import {Link} from 'react-router';
 
 function Navigation({ className, user }) {
-  if (user == null || user.user == null) {
+  console.log("Before Final", window.user);
+  if (window.user == false) {
     return (
       <div className={cx(s.root, className)} role="navigation">
         <Link to={"/upload/resume"} >Upload</Link>
@@ -24,6 +25,7 @@ function Navigation({ className, user }) {
       </div>
     );
   }
+  console.log("Final", window.user);
   return (
     <div className={cx(s.root, className)} role="navigation">
       <Link to={"/upload/resume"} >Upload</Link>
@@ -31,16 +33,8 @@ function Navigation({ className, user }) {
       <Link to={"/admin"} >Admin</Link>
       <span className={s.spacer}> | </span>
       <div className={cx(s.link, s.highlight)} >
-        <Link className={s.username} to={`/user/${user.user.id}`}>
-          <span> {user.user.username}</span>
-          <img
-            role="presentation"
-            className={s.avatar}
-            height="32px"
-            width="32px"
-            src={`https://discordapp.com/api/users/${user.user.id}/avatars/${user.user.avatar}.jpg`}
-
-          />
+        <Link className={s.username} to={`/user/${window.user.id}`}>
+          <span> {window.user.username}</span>
         </Link>
         <a className={cx(s.link, s.highlight)} href="/logout">Log out</a>
       </div>

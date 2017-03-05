@@ -26,8 +26,13 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
-    fetch('/login', {method: "POST", body: this.state});
-    console.log('A name was submitted: ' + this.state);
+    fetch('/login', {method: "POST",   headers: {
+      'Content-Type': 'application/json'
+    }, body: JSON.stringify(this.state)}).then((user) => {
+      console.log("1", user);
+      user.json().then(window.onUserLogin);
+    });
+    console.log('A name was submitted: ', JSON.stringify(this.state));
     event.preventDefault();
   }
 
@@ -42,7 +47,7 @@ export default class Login extends Component {
           Password:
           <input onChange={this.passwordChange} type="password" name="password"/>
         </label>
-          <input type="submit" value="Submit"></input>
+          <input type="submit" value="Submit" />
       </form>
     </div>)
   }
