@@ -30,7 +30,7 @@ export default class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = { searchTerm: '', value: [] };
-        this.updateSearchTerm = this.updateSearchTerm.bind(this);
+        this.updateName = this.updateName.bind(this);
         this.onClick = this.onClick.bind(this);
         this.logChange= this.logChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,8 +47,8 @@ export default class Upload extends Component {
 
     }
 
-    updateSearchTerm(event) {
-        this.setState({ searchTerm: event.target.value })
+    updateName(event) {
+        this.setState({ name: event.target.value })
     }
 
     updateSearchArray(value){
@@ -66,8 +66,8 @@ export default class Upload extends Component {
 
       let data = new FormData();
       data.append('file', input.files[0]);
-      data.append('user', window.user);
-      data.append('data', this.state);
+      data.append('user', JSON.stringify(window.user));
+      data.append('data', JSON.stringify(this.state));
 
       fetch('/resume', {
         method: 'POST',
@@ -91,7 +91,7 @@ export default class Upload extends Component {
                     type="text"
                     placeholder="Name..."
                     value={this.state.searchTerm}
-                    onChange={this.updateSearchTerm}
+                    onChange={this.updateName}
                   />
 
                   <h2>Job Type.</h2>
