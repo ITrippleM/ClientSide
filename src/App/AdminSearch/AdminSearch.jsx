@@ -77,10 +77,9 @@ export default class AdminSearch extends Component {
         'Content-Type': 'application/json'
       }, body: JSON.stringify({user: window.user, keys: finalArray})
     }).then((data) => {
-      return data.json();
-    }).then((data) => {
       this.setState({fetchedUsers: data});
     });
+    ;
     console.log('Your Request Was Submitted');
   }
 
@@ -138,11 +137,19 @@ export default class AdminSearch extends Component {
         </div>
       )
     }
-    console.log(this.state.fetchedUsers)
+
     return (
       <div>
-        <h2> Job Type. </h2>
+        <h3> Results. </h3>
+        <h2> Sorted by best match </h2>
         <Circle percent="10" strokeWidth="50" strokeColor="#7FFF00" />
+        <div>
+          {this.state.fetchedUsers.map((resume) => {
+            console.log(resume);
+            return <div>{resume.user},{resume.name},{.score}</div>;
+          })}
+          <Circle percent="10" strokeWidth="50" strokeColor="#7FFF00" />
+        </div>
       </div >
     )
   }
